@@ -12,7 +12,7 @@
 Установите пакет через Composer:
 
 ```bash
-composer require larataj/laravel-xml-helpers
+composer require larataj/xml-helpers
 ```
 
 Если вы используете Laravel 5.5 или выше, пакет автоматически зарегистрируется благодаря **автодетекту провайдеров**. Если вы используете более старую версию Laravel, добавьте сервис-провайдер вручную в `config/app.php`:
@@ -20,7 +20,7 @@ composer require larataj/laravel-xml-helpers
 ```php
 'providers' => [
     ...
-    Helpers\XmlHelpers\HelpersServiceProvider::class,
+    Larataj\XmlHelpers\HelpersServiceProvider::class,
 ],
 ```
 
@@ -33,7 +33,7 @@ composer require larataj/laravel-xml-helpers
 Вы можете использовать метод `ResponseHelper::arrayToXml` для преобразования PHP-массива в строку XML.
 
 ```php
-use Helpers\XmlHelpers\ResponseHelper;
+use Larataj\XmlHelpers\ResponseHelper;
 
 $array = [
     'name' => 'John Doe',
@@ -69,7 +69,7 @@ echo $xml;
 С помощью метода `ResponseHelper::xml` вы можете вернуть XML-ответ в Laravel:
 
 ```php
-use Helpers\XmlHelpers\ResponseHelper;
+use Larataj\XmlHelpers\ResponseHelper;
 
 return ResponseHelper::xml([
     'status' => 'success',
