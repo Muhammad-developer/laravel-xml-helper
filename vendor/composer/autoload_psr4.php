@@ -6,5 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Helpers\\HelperXml\\' => array($baseDir . '/src'),
+    'LaravelHelpers\\HelperXml\\' => array($baseDir . '/src'),
 );

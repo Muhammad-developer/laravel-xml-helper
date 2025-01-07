@@ -12,7 +12,7 @@
 Установите пакет через Composer:
 
 ```bash
-composer require helpers/laravel-xml-helpers
+composer require laravelhelpers/laravel-xml-helpers
 ```
 
 Если вы используете Laravel 5.5 или выше, пакет автоматически зарегистрируется благодаря **автодетекту провайдеров**. Если вы используете более старую версию Laravel, добавьте сервис-провайдер вручную в `config/app.php`:
@@ -20,7 +20,7 @@ composer require helpers/laravel-xml-helpers
 ```php
 'providers' => [
     ...
-    Helpers\XmlHelpers\HelpersServiceProvider::class,
+    LaravelHelpers\XmlHelpers\HelpersServiceProvider::class,
 ],
 ```
 
@@ -33,7 +33,7 @@ composer require helpers/laravel-xml-helpers
 Вы можете использовать метод `ResponseHelper::arrayToXml` для преобразования PHP-массива в строку XML.
 
 ```php
-use Helpers\XmlHelpers\ResponseHelper;
+use LaravelHelpers\XmlHelpers\ResponseHelper;
 
 $array = [
     'name' => 'John Doe',
@@ -69,7 +69,7 @@ echo $xml;
 С помощью метода `ResponseHelper::xml` вы можете вернуть XML-ответ в Laravel:
 
 ```php
-use Helpers\XmlHelpers\ResponseHelper;
+use LaravelHelpers\XmlHelpers\ResponseHelper;
 
 return ResponseHelper::xml([
     'status' => 'success',

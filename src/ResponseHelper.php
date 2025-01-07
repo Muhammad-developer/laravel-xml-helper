@@ -1,6 +1,6 @@
 <?php
 
-namespace Helpers/XmlHelpers;
+namespace LaravelHelpers/XmlHelpers;
 
 use Illuminate\Http\Response;
 
