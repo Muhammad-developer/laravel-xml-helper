@@ -1,11 +1,11 @@
 {
-    "name": "helpers/laravel-xml-helpers",
+    "name": "laravel-helpers/laravel-xml-helpers",
     "description": "A Laravel library to convert arrays to XML and provide XML responses.",
     "keywords": ["laravel", "xml", "response", "helpers", "array to xml", "xml response"],
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "LaravelHelpers\\HelperXml\\": "src/"
+            "Helpers\\HelperXml\\": "src/"
         }
     },
     "authors": [
@@ -20,7 +20,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "LaravelHelpers\\XmlHelpers\\HelpersServiceProvider"
+                "Helpers\\XmlHelpers\\HelpersServiceProvider"
             ]
         }
     }
