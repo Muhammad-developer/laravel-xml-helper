@@ -1,6 +1,6 @@
 <?php
 
-namespace Helpers\XmlHelpers;
+namespace Larataj\XmlHelpers;
 
 use Illuminate\Http\Response;
 

@@ -1,11 +1,11 @@
 {
-    "name": "laravel-helpers-tj/laravel-xml-helpers",
+    "name": "larataj/laravel-xml-helpers",
     "description": "A Laravel library to convert arrays to XML and provide XML responses.",
     "keywords": ["laravel", "xml", "response", "helpers", "array to xml", "xml response"],
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Helpers\\XmlHelpers\\": "src/"
+            "Larataj\\XmlHelpers\\": "src/"
         }
     },
     "authors": [
@@ -20,7 +20,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Helpers\\XmlHelpers\\HelpersServiceProvider"
+                "Larataj\\XmlHelpers\\HelpersServiceProvider"
             ]
         }
     },
