@@ -7,14 +7,14 @@ namespace Composer\Autoload;
 class ComposerStaticInit92d784aa049ad09142b81285001e98b7
 {
     public static $prefixLengthsPsr4 = array (
-        'L' => 
+        'H' => 
         array (
-            'LaravelHelpers\\HelperXml\\' => 25,
+            'Helpers\\XmlHelpers\\' => 19,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'LaravelHelpers\\HelperXml\\' => 
+        'Helpers\\XmlHelpers\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),

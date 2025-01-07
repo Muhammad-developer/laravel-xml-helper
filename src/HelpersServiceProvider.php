@@ -1,6 +1,6 @@
 <?php
 
-namespace Helpers/XmlHelpers;
+namespace Helpers\XmlHelpers;
 
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Support\Facades\Auth;
