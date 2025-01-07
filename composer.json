@@ -1,5 +1,5 @@
 {
-    "name": "laravel-helpers/laravel-xml-helpers",
+    "name": "laravel-helpers-tj/laravel-xml-helpers",
     "description": "A Laravel library to convert arrays to XML and provide XML responses.",
     "keywords": ["laravel", "xml", "response", "helpers", "array to xml", "xml response"],
     "license": "MIT",
