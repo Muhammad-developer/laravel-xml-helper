@@ -12,7 +12,7 @@
 Установите пакет через Composer:
 
 ```bash
-composer require laravel-helpers/laravel-xml-helpers
+composer require laravel-helpers-tj/laravel-xml-helpers
 ```
 
 Если вы используете Laravel 5.5 или выше, пакет автоматически зарегистрируется благодаря **автодетекту провайдеров**. Если вы используете более старую версию Laravel, добавьте сервис-провайдер вручную в `config/app.php`:
