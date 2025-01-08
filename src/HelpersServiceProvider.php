@@ -5,6 +5,7 @@ namespace Larataj\XmlHelpers;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
+use Larataj\XmlHelpers\ResponseHelper;
 
 class HelpersServiceProvider extends ServiceProvider
 {
