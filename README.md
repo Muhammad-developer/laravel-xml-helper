@@ -1,9 +1,12 @@
-
 ---
 
-# Laravel XML Helpers
+# Laravel XML & JSON Helpers
 
-**Laravel XML Helpers** — это библиотека, которая позволяет легко преобразовывать массивы в XML и возвращать HTTP-ответы в формате XML в Laravel.
+**Laravel XML & JSON Helpers** — это библиотека, которая позволяет легко:
+
+- Преобразовывать массивы в XML
+- Возвращать XML-ответы в Laravel
+- Формировать стандартизированные JSON API-ответы (успешные, ошибки, пагинация и др.)
 
 ---
 
@@ -15,22 +18,21 @@
 composer require larataj/xml-helpers
 ```
 
-Если вы используете Laravel 5.5 или выше, пакет автоматически зарегистрируется благодаря **автодетекту провайдеров**. Если вы используете более старую версию Laravel, добавьте сервис-провайдер вручную в `config/app.php`:
+Laravel автоматически зарегистрирует провайдер благодаря **автодетекту**.  
+Если вы используете Laravel ниже 5.5, добавьте вручную:
 
 ```php
+// config/app.php
 'providers' => [
-    ...
     Larataj\XmlHelpers\HelpersServiceProvider::class,
 ],
 ```
 
 ---
 
-## Использование
+## XML: Использование
 
 ### 1. Преобразование массива в XML
-
-Вы можете использовать метод `ResponseHelper::arrayToXml` для преобразования PHP-массива в строку XML.
 
 ```php
 use Larataj\XmlHelpers\ResponseHelper;
@@ -38,14 +40,10 @@ use Larataj\XmlHelpers\ResponseHelper;
 $array = [
     'name' => 'John Doe',
     'email' => 'john.doe@example.com',
-    'roles' => [
-        'admin',
-        'editor',
-    ],
+    'roles' => ['admin', 'editor'],
 ];
 
 $xml = ResponseHelper::arrayToXml($array);
-
 echo $xml;
 ```
 
@@ -64,92 +62,111 @@ echo $xml;
 
 ---
 
-### 2. Возврат HTTP-ответа в формате XML
-
-С помощью метода `ResponseHelper::xml` вы можете вернуть XML-ответ в Laravel:
+### 2. Возврат XML-ответа в Laravel
 
 ```php
 use Larataj\XmlHelpers\ResponseHelper;
 
 return ResponseHelper::xml([
     'status' => 'success',
-    'message' => 'Данные успешно обработаны',
-    'data' => [
-        'id' => 123,
-        'name' => 'John Doe',
-    ],
+    'message' => 'Данные обработаны',
+    'data' => ['id' => 123, 'name' => 'John Doe'],
 ]);
-```
-
-**Результат в браузере (HTTP-ответ):**
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<response>
-  <status>success</status>
-  <message>Данные успешно обработаны</message>
-  <data>
-    <id>123</id>
-    <name>John Doe</name>
-  </data>
-</response>
 ```
 
 ---
 
 ### 3. Использование макроса `response()->xml()`
 
-Пакет добавляет макрос в фабрику ответов Laravel, что позволяет возвращать XML напрямую:
-
 ```php
 return response()->xml([
     'status' => 'success',
-    'message' => 'Данные обработаны',
-    'data' => [
-        'id' => 123,
-        'name' => 'John Doe',
-    ],
+    'data' => ['id' => 123, 'name' => 'John Doe'],
 ]);
-```
-
-**Результат:**
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<response>
-  <status>success</status>
-  <message>Данные обработаны</message>
-  <data>
-    <id>123</id>
-    <name>John Doe</name>
-  </data>
-</response>
 ```
 
 ---
 
-## Тестирование
+## JSON API: Использование `ApiResponse`
 
-Чтобы протестировать преобразование массива в XML, напишите код в одном из маршрутов или контроллеров:
+Библиотека включает удобный хелпер для формирования стандартизированных JSON-ответов.
+
+```php
+use Larataj\XmlHelpers\Response\ApiResponse;
+```
+
+---
+
+### Успешный ответ
+
+```php
+return ApiResponse::success(['message' => 'OK']);
+```
+
+### Ответ `201 Created`
+
+```php
+return ApiResponse::created($user);
+```
+
+### Удаление ресурса
+
+```php
+return ApiResponse::deleted();
+```
+
+### Ошибки
+
+```php
+return ApiResponse::error(['email' => 'Email уже занят']);
+return ApiResponse::error('Произошла ошибка');
+```
+
+### Пагинация
+
+```php
+return ApiResponse::paginated($users, UserResource::class);
+```
+
+---
+
+### Готовые статусы:
+
+```php
+ApiResponse::unauthorized(); // 401
+ApiResponse::forbidden();    // 403
+ApiResponse::notFound();     // 404
+ApiResponse::serverError();  // 500
+ApiResponse::noContent();    // 204
+```
+
+---
+
+## Пример маршрута для теста
 
 ```php
 Route::get('/test-xml', function () {
     return response()->xml([
         'name' => 'Laravel',
         'version' => '10.x',
-        'features' => [
-            'fast',
-            'secure',
-            'elegant'
-        ]
+        'features' => ['fast', 'secure', 'elegant']
+    ]);
+});
+
+Route::get('/test-json', function () {
+    return \Larataj\XmlHelpers\Response\ApiResponse::success([
+        'framework' => 'Laravel',
+        'version' => app()->version(),
     ]);
 });
 ```
-
-Затем откройте `/test-xml` в браузере, чтобы увидеть результат.
 
 ---
 
 ## Лицензия
 
-Этот пакет распространяется под лицензией [MIT](vendor/composer/LICENSE).
+Пакет распространяется под лицензией [MIT](https://opensource.org/licenses/MIT).
+
+Автор: [Muhammad Vafoev](mailto:muhammadjonvafoev@gmail.com)
 
 ---
