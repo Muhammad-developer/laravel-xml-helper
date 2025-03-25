@@ -1,8 +1,6 @@
----
-
 # Laravel XML & JSON Helpers
 
-**Laravel XML & JSON Helpers** — это библиотека, которая позволяет легко:
+Laravel XML & JSON Helpers** — это библиотека, которая позволяет легко:
 
 - Преобразовывать массивы в XML
 - Возвращать XML-ответы в Laravel
