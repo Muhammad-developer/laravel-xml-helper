@@ -1,7 +1,31 @@
 {
     "name": "larataj/xml-helpers",
-    "description": "A Laravel library to convert arrays to XML and provide XML responses.",
-    "keywords": ["laravel", "xml", "response", "helpers", "array to xml", "xml response"],
+    "description": "Powerful, lightweight Laravel XML & JSON helpers library. Convert arrays to XML, return XML responses, and generate standardized JSON API responses with ease.",
+    "keywords": [
+        "laravel",
+        "xml",
+        "json",
+        "response",
+        "helpers",
+        "array to xml",
+        "xml response",
+        "api response",
+        "xml converter",
+        "laravel xml",
+        "laravel json",
+        "api helper",
+        "xml parser",
+        "json parser",
+        "rest api",
+        "laravel api",
+        "response builder",
+        "lightweight",
+        "laravel-xml-helper",
+        "laravel xml-helper",
+        "laravel xml helper",
+        "easy to use"
+    ],
+    "homepage": "https://github.com/larataj/xml-helpers",
     "license": "MIT",
     "autoload": {
         "psr-4": {
@@ -15,7 +39,12 @@
         }
     ],
     "require": {
-        "php": "^7.4|^8.0"
+        "php": "^7.4|^8.0",
+        "illuminate/support": "^5.5|^6.0|^7.0|^8.0|^9.0|^10.0|^11.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0",
+        "orchestra/testbench": "^6.0|^7.0|^8.0|^9.0"
     },
     "extra": {
         "laravel": {
@@ -24,5 +53,6 @@
             ]
         }
     },
-    "version": "2.0.0"
+    "version": "2.1.0",
+    "readme": "README.md"
 }

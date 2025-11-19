@@ -3,14 +3,19 @@
 namespace Larataj\XmlHelpers;
 
 use Illuminate\Contracts\Routing\ResponseFactory;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
-use Larataj\XmlHelpers\ResponseHelper;
 
+/**
+ * Helpers Service Provider
+ *
+ * Registers XML and JSON helper macros for Laravel
+ *
+ * @package Larataj\XmlHelpers
+ */
 class HelpersServiceProvider extends ServiceProvider
 {
     /**
-     * Регистрирует сервисы.
+     * Register services
      */
     public function register(): void
     {
@@ -18,12 +23,18 @@ class HelpersServiceProvider extends ServiceProvider
     }
 
     /**
-     * Выполняет загрузку сервиса.
+     * Bootstrap services
      */
     public function boot(ResponseFactory $factory): void
     {
-        $factory->macro('xml', function ($data, $status = 200, array $headers = [], $rootElement = '<response/>') {
+        // XML response macro
+        $factory->macro('xml', function ($data, $status = 200, array $headers = [], $rootElement = 'response') {
             return ResponseHelper::xml($data, $status, $headers, $rootElement);
+        });
+
+        // XML builder macro
+        $factory->macro('xmlBuilder', function ($rootElement = 'root', array $attributes = []) {
+            return ResponseHelper::builder($rootElement, $attributes);
         });
     }
 }
