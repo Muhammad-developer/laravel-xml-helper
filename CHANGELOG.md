@@ -54,6 +54,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated composer.json with more dependencies info
 - Enhanced PHPDoc comments throughout the codebase
 - Improved type hints and declarations
+- Added support for PHP 8.4
+- Added support for Laravel 12
+
+### Compatibility
+- **PHP**: 7.4, 8.0, 8.1, 8.2, 8.3, 8.4
+- **Laravel**: 5.5, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0
 
 ## [2.0.0] - Previous Release
 
