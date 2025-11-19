@@ -165,9 +165,9 @@ class XmlParser
      * Convert SimpleXML object to array recursively
      *
      * @param SimpleXMLElement $element XML element
-     * @return array
+     * @return array|null
      */
-    protected function xmlToArray(SimpleXMLElement $element): array
+    protected function xmlToArray(SimpleXMLElement $element): ?array
     {
         $result = [];
 
